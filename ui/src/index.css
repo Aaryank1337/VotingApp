@@ -1,0 +1,72 @@
+/* General Page Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Main Container - Full Page Centered */
+.voting-container {
+  width: 80%;
+  max-width: 800px;
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Heading */
+.voting-container h1 {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Connected Account */
+.connected-account {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Vote Buttons */
+.vote-button {
+  width: 100%;
+  max-width: 500px;
+  padding: 15px;
+  margin: 10px auto;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  background-color: #007bff;
+  transition: background 0.3s ease, transform 0.2s ease;
+  display: block;
+}
+
+.vote-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.vote-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Already Voted Message */
+.already-voted {
+  color: red;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 15px;
+}

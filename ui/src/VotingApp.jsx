@@ -136,7 +136,6 @@ const contractABI = [
 const candidates = ["Aaryan", "Dhairyash", "Rushabh", "Aditya"];
 
 export default function VotingApp() {
-  const [provider, setProvider] = useState(null);
   const [contract, setContract] = useState(null);
   const [account, setAccount] = useState(null);
   const [hasVoted, setHasVoted] = useState(false);
@@ -147,14 +146,14 @@ export default function VotingApp() {
         alert("Please install MetaMask!");
         return;
       }
-
+  
       try {
         const provider = new ethers.BrowserProvider(window.ethereum);
         const signer = await provider.getSigner();
         const userAddress = await signer.getAddress();
-
+  
         const contract = new ethers.Contract(CONTRACT_ADDRESS, contractABI, signer);
-
+  
         // 🔴 Ensure contract is deployed at this address
         const code = await provider.getCode(CONTRACT_ADDRESS);
         if (code === "0x") {
@@ -162,11 +161,10 @@ export default function VotingApp() {
           alert("Contract is not deployed. Please check the address.");
           return;
         }
-
-        setProvider(provider);
+  
         setContract(contract);
         setAccount(userAddress);
-
+  
         // ✅ Fetch voting status
         const voted = await contract.hasVotedCheck(userAddress);
         setHasVoted(voted);
@@ -177,6 +175,7 @@ export default function VotingApp() {
     }
     init();
   }, []);
+  
 
   const vote = async (index) => {
     if (!contract) {
